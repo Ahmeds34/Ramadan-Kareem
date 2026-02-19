@@ -1,0 +1,95 @@
+﻿body {
+    margin: 0;
+    font-family: 'Tahoma', sans-serif;
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+    color: white;
+    text-align: center;
+    transition: background 1s ease;
+}
+
+.container {
+    padding: 30px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.time-box {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: rgba(255,255,255,0.08);
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.card h2 {
+    margin-bottom: 15px;
+    color: gold;
+}
+
+.content {
+    max-height: 400px;
+    overflow-y: auto;
+    text-align: right;
+    line-height: 2;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.sky-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 70px;
+    height: 70px;
+}
+
+.sun {
+    background: radial-gradient(circle, yellow 60%, orange);
+    border-radius: 50%;
+    box-shadow: 0 0 40px yellow;
+}
+
+.moon {
+    background: radial-gradient(circle at 30px 30px, white 60%, transparent 61%);
+    border-radius: 50%;
+    box-shadow: 0 0 30px white;
+}
+
+@media (max-width: 768px) {
+    .content {
+        font-size: 16px;
+    }
+}
+
+#countdown {
+    font-size: 18px;
+    font-weight: bold;
+    color: gold;
+}
+
+.link-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: gold;
+    color: black;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.link-button:hover {
+    transform: scale(1.05);
+}
