@@ -1,4 +1,6 @@
-﻿
+﻿let maghribTime24 = null;
+let countdownInterval = null;
+
 async function getIftarTime() {
     try {
         const today = new Date();
@@ -9,12 +11,10 @@ async function getIftarTime() {
         );
 
         const data = await response.json();
-        let maghrib24 = data.data.timings.Maghrib.split(" ")[0];
 
-        // Save 24h internally for countdown
+        let maghrib24 = data.data.timings.Maghrib.split(" ")[0];
         maghribTime24 = maghrib24;
 
-        // Convert to 12-hour format
         const [hour, minute] = maghrib24.split(":");
         let hour12 = parseInt(hour);
         const ampm = hour12 >= 12 ? "PM" : "AM";
@@ -22,10 +22,9 @@ async function getIftarTime() {
         hour12 = hour12 % 12;
         hour12 = hour12 ? hour12 : 12;
 
-        const formattedTime = `${hour12}:${minute} ${ampm}`;
-
-        document.getElementById("iftarTime").innerText = formattedTime;
-
+       document.getElementById("iftarTime").innerHTML =
+    `<span class="time-number">${hour12}:${minute}</span>
+     <span class="time-period">${ampm}</span>`;
         startCountdown();
 
     } catch (error) {
@@ -33,16 +32,23 @@ async function getIftarTime() {
     }
 }
 
-
-
-
 function startCountdown() {
-    const countdownElement = document.createElement("p");
-    countdownElement.id = "countdown";
-    countdownElement.style.marginTop = "10px";
-    document.querySelector(".time-box").appendChild(countdownElement);
 
-    setInterval(() => {
+    let countdownElement = document.getElementById("countdown");
+
+    if (!countdownElement) {
+        countdownElement = document.createElement("p");
+        countdownElement.id = "countdown";
+        countdownElement.style.marginTop = "10px";
+        document.querySelector(".time-box").appendChild(countdownElement);
+    }
+
+    if (countdownInterval) {
+        clearInterval(countdownInterval);
+    }
+
+    countdownInterval = setInterval(() => {
+
         if (!maghribTime24) return;
 
         const now = new Date();
@@ -66,12 +72,12 @@ function startCountdown() {
 
         countdownElement.innerText =
             `⏳ متبقي على الإفطار: ${h} ساعة ${m} دقيقة ${s} ثانية`;
+
     }, 1000);
 }
 
-
-
 function updateSky() {
+
     const hour = new Date().getHours();
     const skyIcon = document.getElementById("skyIcon");
 
@@ -87,4 +93,4 @@ function updateSky() {
 }
 
 getIftarTime();
-updateSky();
+updateSky(); 

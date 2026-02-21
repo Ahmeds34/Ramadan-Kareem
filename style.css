@@ -93,3 +93,88 @@ h1 {
 .link-button:hover {
     transform: scale(1.05);
 }
+
+.duaa-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 17px;
+}
+
+.duaa-table th,
+.duaa-table td {
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 12px;
+    text-align: right;
+    vertical-align: top;
+}
+
+.duaa-table th {
+    background: rgba(255,215,0,0.3);
+    color: gold;
+    font-weight: bold;
+}
+
+.duaa-table tr:nth-child(even) {
+    background: rgba(255,255,255,0.05);
+}
+
+/* Mobile friendly */
+@media (max-width: 768px) {
+    .duaa-table th,
+    .duaa-table td {
+        font-size: 15px;
+        padding: 8px;
+    }
+} 
+
+.duaa-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    display: inline-block;
+    border-radius: 30px;
+    background: linear-gradient(45deg, gold, #ffcc00);
+    color: #222;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
+    position: relative;
+    animation: glowTitle 2s infinite alternate;
+}
+
+@keyframes glowTitle {
+    from {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    }
+    to {
+        box-shadow: 0 0 25px rgba(255, 215, 0, 1);
+    }
+} 
+
+.dhikr-table-wrapper {
+    overflow-x: auto;
+}
+
+.dhikr-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    direction: rtl;
+    font-size: 16px;
+}
+
+.dhikr-table th {
+    background: linear-gradient(45deg, #0d1b2a, #1b263b);
+    color: gold;
+    padding: 12px;
+}
+
+.dhikr-table td {
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+}
+
+.dhikr-table tr:hover {
+    background: rgba(255, 215, 0, 0.1);
+    transition: 0.3s;
+} 
